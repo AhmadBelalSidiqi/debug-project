@@ -30,6 +30,9 @@ public class ConcertService {
         return concertRepository.save(concert);
     }
 
+    public List<Concert> getConcertsByArtistId(Long artistId){
+        return concertRepository.findByArtistId(artistId);
+    }
     public Optional<Concert> updateConcert(Long id, Concert updatedConcert) {
         return concertRepository.findById(id).map(existing -> {
             existing.setTitle(updatedConcert.getTitle());

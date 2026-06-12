@@ -55,4 +55,9 @@ public class ConcertController {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/artist/{artistId}")
+    public ResponseEntity<List<Concert>> getConcertsByArtistId(@PathVariable("artistId") Long artistId){
+        return ResponseEntity.ok(concertService.getConcertsByArtistId(artistId));
+    }
+
 }
